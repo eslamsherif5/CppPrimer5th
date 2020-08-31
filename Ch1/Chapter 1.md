@@ -1,3 +1,5 @@
+[TOC]
+
 ## Chapter 1
 
 ### Exercises Section 1.2
@@ -32,6 +34,8 @@ std::cout << " is " << v1 * v2 << std::endl;
 ----
 
 ### Exercises Section 1.3
+
+---
 
 ### Exercises Section 1.4.1
 
@@ -146,6 +150,8 @@ Enter two integer range limit values
 4
 5
 ```
+
+---
 
 ### Exercises Section 1.4.2
 
@@ -264,7 +270,10 @@ int main()
     return 0;
 }
 ```
+---
+
 ### Exercises Section 1.4.3
+
 #### 1.16
 
 **Q**: Write your own version of a program that prints the sum of a set of integers read from `cin`.
