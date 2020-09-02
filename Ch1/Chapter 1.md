@@ -118,7 +118,7 @@ int main()
     std::cin >> a >> b; // reading from user
     std::cout << "------------" << std::endl;
 
-    int max = 0, min = 0; // to carry the bigger and smaller values
+    int max = 0, min = 0; // to carry the bigger and smaller values respectively
     if (a>b) 
     {
         max = a; // if a is bigger, then pass its value to max
@@ -319,4 +319,135 @@ Sum = 57
 0
 Final Sum = 57
 ```
+
+---
+
+### Exercises Section 1.4.4
+
+#### 1.17
+
+**Q**: What happens in the program presented in this section if the input values are all equal?
+	 What if there are no duplicated values?
+
+**Answer**
+
+1. The program will continue asking for inputs forever. It will never print anything unless the input changes to get into the `else` statement which contains the printing statement.
+2. It will print that every value occurs once.
+
+#### 1.18
+
+**Q**: Compile and run the program from this section giving it only equal values as input.
+	 Run it again giving it values in which no number is repeated.
+
+**Answer**
+   Code:
+
+   ```C++
+#include <iostream>
+
+int main()
+{
+    // currVal is the number we’re counting; we’ll read new values into val
+    int currVal = 0, val = 0;
+    // read first number and ensure that we have data to process
+    if (std::cin >> currVal)
+    {
+        int cnt = 1; // store the count for the current value we’re processing
+        while (std::cin >> val) { // read the remaining numbers
+            if (val == currVal)
+                // if the values are the same
+                ++cnt;
+                // add 1 to cnt
+            else { // otherwise, print the count for the previous value
+                std::cout << currVal << " occurs " << cnt << " times" << std::endl;
+                currVal = val;
+                // remember the new value
+                cnt = 1;
+                // reset the counter
+            }
+        } // while loop ends here
+        // remember to print the count for the last value in the file
+        std::cout << currVal << " occurs " << cnt << " times" << std::endl;
+    } // outermost if statement ends here
+    return 0;
+}
+   ```
+1. Only equal values
+
+   Input:
+
+   ```
+   1 1 1 1 1 1 1 1 1
+   ```
+   Output:
+
+   ```
+   <No output>
+   ```
+
+2. Only unique values
+
+   Input:
+
+   ```
+   1 2 3 4 5 6
+   ```
+   Output:
+
+   ```
+   1 occurs 1 times
+   2 occurs 1 times
+   3 occurs 1 times
+   4 occurs 1 times
+   5 occurs 1 times
+   ```
+
+#### 1.19
+
+**Q**: Revise the program you wrote for the exercises in § 1.4.1 (p. 13) that printed a range of numbers so that it handles input in which the first number is smaller than the second.
+
+**Answer**
+
+```c++
+#include <iostream>
+
+int main()
+{
+    std::cout << "Enter two integer range limit values" << std::endl;
+    int a = 0, b = 0; // range limit values
+    std::cin >> a >> b; // reading from user
+    std::cout << "------------" << std::endl;
+
+    if (a>b) 
+    {
+        int temp;
+        temp = b;
+        b = a;
+        a = temp;
+    }
+    while (a <= b) // as long as min is below or equal to max
+    {    
+        std::cout << a << std::endl;
+        a++;
+    }
+    return 0;
+}
+```
+
+Output:
+
+```
+Enter two integer range limit values
+1 5
+------------
+1
+2
+3
+4
+5
+```
+
+---
+
+### Exercises Section 1.4.5
 
